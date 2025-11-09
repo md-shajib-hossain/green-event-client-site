@@ -1,7 +1,10 @@
 import React, { use } from "react";
 import logo from "../assets/logo__2_-removebg-preview.png";
 import { AuthContext } from "../context/AuthContext";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
+import { TbMoodEmpty } from "react-icons/tb";
+import { FaPersonWalking } from "react-icons/fa6";
+
 const Navbar = () => {
   const { user } = use(AuthContext);
   console.log(user);
@@ -56,7 +59,10 @@ const Navbar = () => {
               src={logo}
               alt="logo"
             />
-            <a className="font-bold text-2xl text-green-800"> Green Event</a>
+            <a className="font-bold text-2xl text-transparent bg-clip-text bg-linear-to-r from-green-600 to-teal-800">
+              {" "}
+              Green Event
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex  ">
@@ -83,46 +89,54 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <div className="dropdown dropdown-end ">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-15">
-                {user ? (
-                  <img
-                    className="w-15 rounded-full"
-                    alt="user"
-                    src={user.photoURL}
-                  />
-                ) : (
-                  <p>No image</p>
-                )}
+          {user ? (
+            <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
+              <div tabIndex={0} role="button" className=" m-1">
+                <img
+                  className="w-15 rounded-full"
+                  src={user.photoURL}
+                  alt="user image"
+                />
               </div>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a>Create Events</a>
-              </li>
-              <li>
-                <a>Manage Events</a>
-              </li>
-              <li>
-                <a>Join Events</a>
-              </li>
-              <li>
-                <a>Profile</a>
-              </li>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+              >
+                <li>
+                  <p className="text-green-700 font-semibold">
+                    {user.displayName}
+                  </p>
+                </li>
+                <li>
+                  <p className="text-green-700 font-semibold">{user.email} </p>
+                </li>
+                <li>
+                  <a>Create Events</a>
+                </li>
+                <li>
+                  <a>Manage Events</a>
+                </li>
+                <li>
+                  <a>Join Events</a>
+                </li>
+                <li>
+                  <a>Profile</a>
+                </li>
 
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+                <li>
+                  <p className="text-red-700">
+                    Log Out{" "}
+                    <span>
+                      <FaPersonWalking size={22} />
+                    </span>{" "}
+                  </p>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+
           {user ? (
             <button className="btn bg-green-900 text-white rounded-xl">
               Log Out
