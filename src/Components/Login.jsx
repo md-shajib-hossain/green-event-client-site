@@ -11,7 +11,7 @@ const LogIn = () => {
   const [showPass, setShowPass] = useState(false);
   const [checkPass, setCheckPass] = useState("");
   const emailRef = useRef();
-  const { loginWithEP, setUser, loading, setLoading, createUserWithGoogle } =
+  const { loginWithEP, setUser, setLoading, createUserWithGoogle } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

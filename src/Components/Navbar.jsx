@@ -65,26 +65,18 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex  ">
+        <div className="navbar-center hidden lg:flex items-center  ">
           <ul className="menu menu-horizontal px-1 text-lg gap-5">
             <li>
-              <a>Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
+
             <li>
-              <details>
-                <summary>Upcoming Events</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
+              <NavLink to="/events">Upcoming Events</NavLink>
             </li>
+
             <li>
-              <a>Gallery</a>
+              <NavLink to="/gallery">Gallery</NavLink>
             </li>
           </ul>
         </div>
