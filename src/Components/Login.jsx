@@ -70,7 +70,9 @@ const LogIn = () => {
       <div className="hero  min-h-screen bg-linear-to-tr bg-green-900 from-teal-100">
         <div className="card bg-green-50 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <h1 className="text-2xl text-center font-bold">Pleaase Log In!</h1>
+            <h1 className="text-2xl text-center font-bold text-green-900">
+              Pleaase Log In!
+            </h1>
             <form onSubmit={handleLogIn} className="fieldset">
               <label className="label">Email</label>
               <input
@@ -107,20 +109,17 @@ const LogIn = () => {
                   </p>
                 )}
               </div>
-              {/* pass error end */}
-              <Link to="resetpassword">
-                {" "}
-                <p className="text-blue-700 text-md font-semibold cursor-pointer hover:underline">
-                  Forget Password?
-                </p>
-              </Link>
-              <button type="submit" className="btn btn-neutral mt-4">
+
+              <button
+                type="submit"
+                className="bg-green-600 hover:bg-green-700 text-white text-[16px] font-semibold px-6 py-2 rounded-lg text-center mt-4"
+              >
                 Log In
               </button>
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
-                className="btn mt-2 hover:bg-blue-50 bg-white text-black border-[#e5e5e5]"
+                className="btn mt-2 hover:border-2  bg-white text-black hover:border-green-600"
               >
                 <svg
                   aria-label="Google logo"

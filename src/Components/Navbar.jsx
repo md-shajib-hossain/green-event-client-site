@@ -35,37 +35,31 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-green-50 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Home</a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <a>Upcoming Events</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                <NavLink to="/events">Upcoming Events</NavLink>
               </li>
               <li>
-                <a>Gallery</a>
+                <NavLink to="/gallery">Gallery</NavLink>
               </li>
             </ul>
           </div>
-          <div className="flex items-center gap-1 cursor-pointer">
-            <img
-              className=" rounded-full w-[60px] h-[60px]"
-              src={logo}
-              alt="logo"
-            />
-            <a className="font-bold text-2xl text-transparent bg-clip-text bg-linear-to-r from-green-600 to-teal-800">
-              {" "}
-              Green Event
-            </a>
-          </div>
+          <NavLink to="/">
+            <div className="flex items-center gap-1 cursor-pointer">
+              <img
+                className=" rounded-full w-[60px] h-[60px]"
+                src={logo}
+                alt="logo"
+              />
+              <h1 className="font-bold text-2xl text-transparent bg-clip-text bg-linear-to-r from-green-600 to-teal-800">
+                {" "}
+                Green Event
+              </h1>
+            </div>
+          </NavLink>
         </div>
-        <div className="navbar-center hidden lg:flex items-center  ">
+        <div className="navbar-center hidden lg:flex items-center ">
           <ul className="menu menu-horizontal px-1 text-lg gap-5">
             <li>
               <NavLink to="/">Home</NavLink>
@@ -130,12 +124,12 @@ const Navbar = () => {
           )}
 
           {user ? (
-            <button className="btn bg-green-900 text-white rounded-xl">
+            <button className="btn bg-green-600 hover:bg-green-700 text-white rounded-xl">
               Log Out
             </button>
           ) : (
             <NavLink to="/login">
-              <button className="btn bg-green-900 text-white rounded-xl">
+              <button className="btn bg-green-600 hover:bg-green-700 text-white rounded-xl">
                 Log In
               </button>
             </NavLink>

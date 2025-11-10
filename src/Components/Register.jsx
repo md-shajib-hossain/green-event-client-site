@@ -110,7 +110,7 @@ const Register = () => {
   //
   return (
     <div>
-      <div className="hero  min-h-screen bg-[#224230c0]">
+      <div className="hero  min-h-screen bg-linear-to-tr bg-green-900 from-teal-100">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
             <h1 className="text-2xl text-center font-bold">
@@ -169,12 +169,14 @@ const Register = () => {
                 )}
               </div>
 
-              <button className="btn btn-neutral mt-4">Register</button>
+              <button className="btn bg-green-600 hover:bg-green-700 text-white text-[16px] font-semibold px-6 py-2 rounded-lg text-center mt-4">
+                Register
+              </button>
               {/* google btn */}
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
-                className="btn mt-2 hover:bg-blue-50 bg-white text-black border-[#e5e5e5]"
+                className="btn mt-2  hover:border-2  bg-white text-black hover:border-green-600"
               >
                 <svg
                   aria-label="Google logo"
