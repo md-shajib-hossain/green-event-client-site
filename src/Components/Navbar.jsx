@@ -1,13 +1,26 @@
 import React, { use } from "react";
 import logo from "../assets/logo__2_-removebg-preview.png";
 import { AuthContext } from "../context/AuthContext";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { TbMoodEmpty } from "react-icons/tb";
 import { FaPersonWalking } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { user } = use(AuthContext);
-  console.log(user);
+  const { user, logOut, setUser } = use(AuthContext);
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        setUser(null);
+        toast.success("Logged Out Successfully");
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("Failed to Log out!");
+      });
+  };
+  // console.log(user);
   return (
     <div className="shadow-sm bg-green-50">
       <div className="w-11/12 mx-auto navbar">
@@ -32,7 +45,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-green-50 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-green-50 rounded-box z-1 mt-3 w-52 p-2 shadow text-green-900 font-semibold"
             >
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -60,16 +73,16 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex items-center ">
-          <ul className="menu menu-horizontal px-1 text-lg gap-5">
-            <li>
+          <ul className=" menu-horizontal px-1 text-lg gap-5 text-green-900 font-semibold">
+            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-2 rounded-lg">
               <NavLink to="/">Home</NavLink>
             </li>
 
-            <li>
+            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-2 rounded-lg">
               <NavLink to="/events">Upcoming Events</NavLink>
             </li>
 
-            <li>
+            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-2 rounded-lg">
               <NavLink to="/gallery">Gallery</NavLink>
             </li>
           </ul>
@@ -81,7 +94,7 @@ const Navbar = () => {
                 <img
                   className="w-15 rounded-full"
                   src={user.photoURL}
-                  alt="user image"
+                  alt="image"
                 />
               </div>
               <ul
@@ -110,7 +123,7 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <p className="text-red-700">
+                  <p onClick={handleLogOut} className="text-red-700">
                     Log Out{" "}
                     <span>
                       <FaPersonWalking size={22} />
@@ -124,7 +137,10 @@ const Navbar = () => {
           )}
 
           {user ? (
-            <button className="btn bg-green-600 hover:bg-green-700 text-white rounded-xl">
+            <button
+              onClick={handleLogOut}
+              className="btn bg-green-600 hover:bg-green-700 text-white rounded-xl"
+            >
               Log Out
             </button>
           ) : (

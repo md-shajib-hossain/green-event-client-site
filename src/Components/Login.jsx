@@ -11,7 +11,7 @@ const LogIn = () => {
   const [showPass, setShowPass] = useState(false);
   const [checkPass, setCheckPass] = useState("");
   const emailRef = useRef();
-  const { loginWithEP, setUser, setLoading, createUserWithGoogle } =
+  const { loginWithEP, setUser, loading, setLoading, createUserWithGoogle } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -51,9 +51,9 @@ const LogIn = () => {
   //
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
-    // if (loading) {
-    //   return <Loader />;
-    // }
+    if (loading) {
+      return <Loader />;
+    }
     createUserWithGoogle()
       .then((res) => {
         setUser(res.user);
@@ -67,7 +67,7 @@ const LogIn = () => {
   };
   return (
     <div>
-      <div className="hero  min-h-screen bg-linear-to-tr bg-green-900 from-teal-100">
+      <div className="hero  min-h-screen bg-linear-to-tl bg-green-900 from-teal-100">
         <div className="card bg-green-50 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
             <h1 className="text-2xl text-center font-bold text-green-900">

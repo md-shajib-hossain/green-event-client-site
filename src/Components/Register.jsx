@@ -17,13 +17,13 @@ const Register = () => {
     updateUser,
   } = use(AuthContext);
   const [showPass, setShowPass] = useState(false);
-  console.log(loading);
+  // console.log(loading);
   const navigate = useNavigate();
 
   //
-  //   if (loading) {
-  //     return <Loader></Loader>;
-  //   }
+  if (loading) {
+    return <Loader></Loader>;
+  }
   //
   const handleRegister = (e) => {
     e.preventDefault();
@@ -48,7 +48,7 @@ const Register = () => {
     createUserWithEP(email, password)
       .then((result) => {
         const user = result.user;
-        // setLoading(false);
+        setLoading(false);
         navigate("/");
         updateUser({
           displayName: name,
@@ -92,9 +92,9 @@ const Register = () => {
   //
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
-    // if (loading) {
-    //   return <Loader />;
-    // }
+    if (loading) {
+      return <Loader />;
+    }
     createUserWithGoogle()
       .then(() => {
         // setUser(res.user);

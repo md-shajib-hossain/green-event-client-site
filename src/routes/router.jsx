@@ -5,6 +5,7 @@ import Login from "../Components/Login";
 import Register from "../Components/Register";
 import UpcomingEvents from "../pages/UpcomingEvents";
 import Gallery from "../pages/Gallery";
+import CreateEvent from "../Components/CreateEvent";
 // import Login from "../Components/Login";
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         Component: Gallery,
+      },
+      {
+        path: "/create-event",
+        Component: CreateEvent,
       },
     ],
   },
