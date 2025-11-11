@@ -110,13 +110,13 @@ const Navbar = () => {
                   <p className="text-green-700 font-semibold">{user.email} </p>
                 </li>
                 <li>
-                  <a>Create Events</a>
+                  <Link to="/create-event">Create Events</Link>
                 </li>
                 <li>
-                  <a>Manage Events</a>
+                  <Link to="/manage-event">Manage Events</Link>
                 </li>
                 <li>
-                  <a>Join Events</a>
+                  <Link to="/joined-events">Join Events</Link>
                 </li>
                 <li>
                   <a>Profile</a>

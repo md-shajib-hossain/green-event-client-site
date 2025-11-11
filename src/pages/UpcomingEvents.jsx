@@ -1,6 +1,6 @@
 // src/pages/UpcomingEvents.jsx
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 import { IoLocationOutline } from "react-icons/io5";
@@ -70,10 +70,12 @@ const UpcomingEvents = () => {
                 </p>
               </div>
 
-              <div className="card-actions justify-end mt-4">
-                <button className="btn w-full bg-green-700 btn-sm text-white">
-                  View Details
-                </button>
+              <div className=" mt-4">
+                <Link to={`/event-detail/${event._id}`}>
+                  <button className="btn w-full bg-green-700 btn-sm text-white">
+                    View Details
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

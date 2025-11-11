@@ -118,8 +118,12 @@ export default function CreateEvent() {
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
           Create New Event
         </h1>
-        <p className="text-gray-600 mb-8">
+        <p className="text-gray-600 mb-2">
           Fill in the details to create an environmental event
+        </p>
+        <p className="text-gray-600 mb-8 italic">
+          This event will be created by:{" "}
+          <span className="font-semibold text-green-700"> {user.email} </span>
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
