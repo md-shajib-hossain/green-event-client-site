@@ -6,6 +6,7 @@ import Register from "../Components/Register";
 import UpcomingEvents from "../pages/UpcomingEvents";
 import Gallery from "../pages/Gallery";
 import CreateEvent from "../Components/CreateEvent";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import Login from "../Components/Login";
 
 const router = createBrowserRouter([
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-event",
-        Component: CreateEvent,
+        element: (
+          <PrivateRoute>
+            <CreateEvent></CreateEvent>
+          </PrivateRoute>
+        ),
       },
     ],
   },
