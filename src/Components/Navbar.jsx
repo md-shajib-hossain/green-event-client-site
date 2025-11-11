@@ -109,7 +109,7 @@ const Navbar = () => {
                   <Link to="/manage-event">Manage Events</Link>
                 </li>
                 <li>
-                  <Link to="/joined-events">Join Events</Link>
+                  <Link to="/my-joined-events">Join Events</Link>
                 </li>
                 <li>
                   <a>Profile</a>

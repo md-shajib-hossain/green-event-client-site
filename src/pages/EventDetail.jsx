@@ -11,7 +11,7 @@ const EventDetail = () => {
   const [event, setEvent] = useState({});
   const navigate = useNavigate();
   const [joining, setJoining] = useState(true);
-  //   console.log(id);
+  //   console.log(event);
 
   useEffect(() => {
     fetch(`http://localhost:3000/events/${id}`)
@@ -25,8 +25,10 @@ const EventDetail = () => {
   const handleJoinEvent = async () => {
     if (!user) {
       toast.error("Please Log In to Join the Event!");
+      navigate("/login");
       return;
     }
+
     try {
       const res = await fetch(`http://localhost:3000/joined-events`, {
         method: "POST",
@@ -34,6 +36,10 @@ const EventDetail = () => {
         body: JSON.stringify({
           eventId: id,
           userEmail: user.email,
+          thumbnail: event.thumbnail,
+          type: event.type,
+          title: event.title,
+          date: event.date,
         }),
       });
 

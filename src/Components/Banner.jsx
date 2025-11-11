@@ -32,7 +32,7 @@ export default function Banner() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="/upcoming-events"
+                href="/events"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full text-center"
