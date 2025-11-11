@@ -53,9 +53,6 @@ const Navbar = () => {
               <li>
                 <NavLink to="/events">Upcoming Events</NavLink>
               </li>
-              <li>
-                <NavLink to="/gallery">Gallery</NavLink>
-              </li>
             </ul>
           </div>
           <NavLink to="/">
@@ -74,16 +71,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex items-center ">
           <ul className=" menu-horizontal px-1 text-lg gap-5 text-green-900 font-semibold">
-            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-2 rounded-lg">
+            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 rounded-full px-5">
               <NavLink to="/">Home</NavLink>
             </li>
 
-            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-2 rounded-lg">
+            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-5 rounded-full">
               <NavLink to="/events">Upcoming Events</NavLink>
-            </li>
-
-            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-2 rounded-lg">
-              <NavLink to="/gallery">Gallery</NavLink>
             </li>
           </ul>
         </div>
@@ -139,13 +132,13 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={handleLogOut}
-              className="btn bg-green-600 hover:bg-green-700 text-white rounded-xl"
+              className="btn bg-green-600 hover:bg-green-700 hover:scale-105 transition ease-in-out duration-300 text-white rounded-full hidden px-5 lg:flex"
             >
               Log Out
             </button>
           ) : (
             <NavLink to="/login">
-              <button className="btn bg-green-600 hover:bg-green-700 text-white rounded-xl">
+              <button className="btn bg-green-600 hover:bg-green-700 text-white rounded-full px-5">
                 Log In
               </button>
             </NavLink>

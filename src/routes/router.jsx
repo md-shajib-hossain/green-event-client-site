@@ -4,7 +4,6 @@ import MainLayOuts from "../Layouts/MainLayOuts";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
 import UpcomingEvents from "../pages/UpcomingEvents";
-import Gallery from "../pages/Gallery";
 import CreateEvent from "../Components/CreateEvent";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import JoinedEvent from "../pages/JoinedEvent";
@@ -34,10 +33,7 @@ const router = createBrowserRouter([
         Component: UpcomingEvents,
         loader: () => fetch("http://localhost:3000/events"),
       },
-      {
-        path: "/gallery",
-        Component: Gallery,
-      },
+
       {
         path: "/create-event",
         element: (

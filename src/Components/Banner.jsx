@@ -25,7 +25,7 @@ export default function Banner() {
               </span>
             </h1>
 
-            <p className="text-lg text-white mb-6 max-w-md">
+            <p className="text-xl text-white mb-6 max-w-md">
               Join local cleanup, tree plantation, and donation events. Be the
               change!
             </p>
@@ -35,7 +35,7 @@ export default function Banner() {
                 href="/upcoming-events"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg text-center"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full text-center"
               >
                 Explore Events
               </motion.a>
@@ -44,25 +44,25 @@ export default function Banner() {
                 href="/create-event"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-green-600 text-green-600 hover:bg-white  font-semibold px-6 py-3 rounded-lg text-center"
+                className="border-2 border-green-600 text-green-600 hover:bg-white  font-semibold px-6 py-3 rounded-full text-center"
               >
                 Create Event
               </motion.a>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-8 text-center">
+            <div className="grid grid-cols-3 gap-4 mt-8 text-center justify-items-start">
               <div>
-                <div className="text-2xl font-bold text-green-600">2.5K+</div>
-                <div className="text-sm text-white">Volunteers</div>
+                <div className="text-4xl font-bold text-green-600">50K+</div>
+                <div className="text-md text-white">Volunteers</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-600">1.2K+</div>
-                <div className="text-sm text-white">Trees</div>
+                <div className="text-4xl font-bold text-green-600">1.2M+</div>
+                <div className="text-md text-white">Trees</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-600">85+</div>
-                <div className="text-sm text-white">Events</div>
+                <div className="text-4xl font-bold text-green-600">85+</div>
+                <div className="text-md text-white">Events</div>
               </div>
             </div>
           </motion.div>
