@@ -10,9 +10,10 @@ const EventDetail = () => {
   const { user } = useContext(AuthContext);
   const [event, setEvent] = useState({});
   const navigate = useNavigate();
-  const [joining, setJoining] = useState(true);
+
   //   console.log(event);
 
+  // for routes and data fecth by id
   useEffect(() => {
     fetch(`http://localhost:3000/events/${id}`)
       .then((res) => res.json())
@@ -21,7 +22,7 @@ const EventDetail = () => {
   }, [id]);
   //   console.log(event);
 
-  // join event er function
+  // handle join event er function
   const handleJoinEvent = async () => {
     if (!user) {
       toast.error("Please Log In to Join the Event!");
@@ -53,8 +54,6 @@ const EventDetail = () => {
     } catch (err) {
       toast.error("Network error");
       console.log(err.message);
-    } finally {
-      setJoining(false);
     }
   };
 
@@ -128,14 +127,11 @@ const EventDetail = () => {
               <div className="flex gap-4 mt-8">
                 <button
                   onClick={handleJoinEvent}
-                  disabled={!joining}
-                  className={`btn flex-1 transition  text-white ${
-                    joining
-                      ? "bg-green-600 hover:bg-green-700 cursor-pointer"
-                      : "bg-gray-300 cursor-not-allowed"
-                  }`}
+                  className={`btn flex-1 transition  text-white             
+                    bg-green-600 hover:bg-green-700 cursor-pointer             
+                  `}
                 >
-                  {joining ? "Join Event" : "Joined!"}
+                  Join
                 </button>
                 <button className="btn border border-green-600  hover:bg-green-700 flex-1">
                   Share
