@@ -1,4 +1,3 @@
-// src/pages/CreateEvent.jsx
 import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";

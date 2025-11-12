@@ -19,8 +19,8 @@ const ManageEvents = () => {
   }, [user.email]);
   // console.log(myEvents);
 
-  const handleUpdateEvent = () => {
-    navigate("/update-event");
+  const handleUpdateEvent = (id) => {
+    navigate(`/update-event/${id}`);
     // console.log(myEvents);
   };
   return (
@@ -92,7 +92,7 @@ const ManageEvents = () => {
 
                 {/* Button */}
                 <button
-                  onClick={handleUpdateEvent}
+                  onClick={() => handleUpdateEvent(event._id)}
                   className="mt-auto w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold 
                  rounded-2xl hover:from-green-700 hover:to-emerald-700 transform hover:scale-105 
                  transition-all duration-300 shadow-xl"

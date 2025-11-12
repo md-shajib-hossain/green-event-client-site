@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         Component: EventDetail,
       },
       {
-        path: "/update-event",
+        path: "/update-event/:id",
         element: (
           <PrivateRoute>
             <UpdateEvent></UpdateEvent>
