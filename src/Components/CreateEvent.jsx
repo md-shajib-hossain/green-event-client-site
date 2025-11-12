@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const eventTypes = [
   "Cleanup",
@@ -19,7 +20,7 @@ const eventTypes = [
 export default function CreateEvent() {
   const { user } = use(AuthContext);
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -92,6 +93,7 @@ export default function CreateEvent() {
 
       if (res.ok) {
         toast.success("Event created successfully!");
+
         setFormData({
           title: "",
           description: "",
@@ -100,6 +102,7 @@ export default function CreateEvent() {
           location: "",
           date: null,
         });
+        navigate("/events");
       } else {
         toast.error(data.message || "Failed to create event");
       }

@@ -81,7 +81,6 @@ const UpdateEvent = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Safe payload — date null হলে toISOString() কল হবে না
     const payload = {
       ...formData,
       date: formData.date ? formData.date.toISOString() : null,
