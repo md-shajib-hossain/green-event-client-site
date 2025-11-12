@@ -1,5 +1,5 @@
 // src/pages/UpcomingEvents.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
@@ -8,8 +8,62 @@ import { BsCalendar2Date } from "react-icons/bs";
 import notFound from "../assets/not_found.png";
 
 const UpcomingEvents = () => {
-  const events = useLoaderData();
+  const events = useLoaderData(); // shob data ashtese
+  // const [newEvents, setNewEvents] = useState([]);
   const [searchEvents, setSearchEvent] = useState(events);
+  const [selectedType, setSelectedType] = useState("All");
+  // const [filteredEvents, setFilteredEvents] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  console.log(events);
+
+  // useEffect(() => {
+  //   if (searchText) {
+  //     fetch(`http://localhost:3000/search?search=${searchText}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setSearchEvent(data);
+  //         console.log(searchEvents);
+  //       });
+  //   }
+  //   if (selectedType) {
+  //     fetch(`http://localhost:3000/filter?filter=${selectedType}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //       });
+  //   } else {
+  //     searchEvents(events);
+  //   }
+  // }, [searchText, selectedType]);
+
+  // filter er jonno
+  // useEffect(() => {
+  //   const fetchEvents = async () => {
+  //     try {
+  //       const url = `http://localhost:3000/filter?filter=${selectedType}`;
+  //       const res = await fetch(url);
+  //       const data = await res.json();
+  //       // console.log(data);
+  //       setNewEvents(data);
+  //       setFilteredEvents(data);
+  //     } catch (err) {
+  //       console.error(err);
+  //       // setNewEvents([]);
+  //       setFilteredEvents([]);
+  //     } finally {
+  //       // setLoading(false);
+  //     }
+  //   };
+
+  //   fetchEvents();
+  // }, [selectedType]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search = e.target.search.value;
+    setSearchText(search);
+    console.log(searchText);
+  };
 
   if (!events || events.length === 0) {
     return (
@@ -18,18 +72,25 @@ const UpcomingEvents = () => {
       </div>
     );
   }
+  // if (!newEvents || newEvents.length === 0) {
+  //   return (
+  //     <div className="flex justify-center items-center flex-col">
+  //       <h1 className="text-4xl font-bold text-center mb-15 text-green-700 mt-10">
+  //         Upcoming Events
+  //       </h1>
+  //       <div>
+  //         <img src={notFound} alt="" />
+  //       </div>
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const search_text = e.target.search.value;
-    console.log(search_text);
-
-    fetch(`http://localhost:3000/search?search=${search_text}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setSearchEvent(data);
-      });
-  };
+  //       <button
+  //         onClick={() => setFilteredEvents(events)}
+  //         className="btn px-5 my-10 rounded-full bg-green-600 text-white"
+  //       >
+  //         Upcoming Events
+  //       </button>
+  //     </div>
+  //   );
+  // }
 
   if (!searchEvents || searchEvents.length === 0) {
     return (
@@ -51,6 +112,18 @@ const UpcomingEvents = () => {
     );
   }
 
+  const eventTypes = [
+    "All",
+    "Cleanup",
+    "Plantation",
+    "Donation",
+    "Awareness Campaign",
+    "Recycling Drive",
+    "Tree Planting",
+    "Beach Cleanup",
+    "Community Service",
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -61,32 +134,50 @@ const UpcomingEvents = () => {
       <h1 className="text-4xl font-bold text-center mb-15 text-green-700">
         Upcoming Events
       </h1>
-      <form onSubmit={handleSearch} className="flex justify-start gap-1 mb-10 ">
-        <label className="input rounded-full border-2 border-green-600">
-          <svg
-            className="h-[1em] opacity-50"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <g
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2.5"
-              fill="none"
-              stroke="currentColor"
+      <div className="flex items-center justify-between">
+        <form
+          onSubmit={handleSearch}
+          className="flex justify-start gap-1 mb-10 "
+        >
+          <label className="input rounded-full border-2 border-green-600">
+            <svg
+              className="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
             >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input name="search" type="search" placeholder="Search" />
-        </label>
-        <button className="btn rounded-full  bg-green-600 px-10 text-white">
-          Go
-        </button>
-      </form>
+              <g
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                strokeWidth="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input name="search" type="search" placeholder="Search" />
+          </label>
+          <button className="btn rounded-full  bg-green-600 px-10 text-white">
+            Go
+          </button>
+        </form>
+        <section>
+          <select
+            value={selectedType}
+            onChange={(e) => setSelectedType(e.target.value)}
+            className="px-6 py-3 border-2 border-green-600 rounded-full bg-white text-green-700 font-semibold focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            {eventTypes.map((type) => (
+              <option key={type} value={type}>
+                {type === "All" ? "All Types" : type}
+              </option>
+            ))}
+          </select>
+        </section>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
-        {searchEvents.map((event) => (
+        {events.map((event) => (
           <div
             key={event._id}
             className="card bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-103 ease-in-out"
