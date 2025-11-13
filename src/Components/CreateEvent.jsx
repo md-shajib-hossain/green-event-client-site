@@ -115,23 +115,23 @@ export default function CreateEvent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-12 px-4">
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">
+    <div className="min-h-screen dark:bg-gray-800 bg-green-50 py-12 px-4">
+      <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 dark:border-2 dark:border-green-500">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2 dark:text-gray-200 ">
           Create New Event
         </h1>
-        <p className="text-gray-600 mb-2">
+        <p className="text-gray-600 mb-2 dark:text-gray-300">
           Fill in the details to create an environmental event
         </p>
-        <p className="text-gray-600 mb-8 italic">
+        <p className="text-gray-600 mb-8 italic dark:text-gray-300">
           This event will be created by:{" "}
           <span className="font-semibold text-green-700"> {user.email} </span>
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 ">
           {/* Title */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2 dark:text-gray-300">
               Event Title <span className="text-red-500">*</span>
             </label>
             <input
@@ -151,7 +151,7 @@ export default function CreateEvent() {
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2 dark:text-gray-300">
               Description <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -171,7 +171,7 @@ export default function CreateEvent() {
 
           {/* Event Type */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2 dark:text-gray-300">
               Event Type <span className="text-red-500">*</span>
             </label>
             <select
@@ -196,7 +196,7 @@ export default function CreateEvent() {
 
           {/* Thumbnail */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2 dark:text-gray-300">
               Thumbnail Image URL <span className="text-red-500">*</span>
             </label>
             <input
@@ -216,7 +216,7 @@ export default function CreateEvent() {
 
           {/* Location */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2 dark:text-gray-300">
               Location <span className="text-red-500">*</span>
             </label>
             <input
@@ -236,7 +236,7 @@ export default function CreateEvent() {
 
           {/* Date */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700 mb-2 dark:text-gray-300">
               Event Date <span className="text-red-500">*</span>
             </label>
             <DatePicker

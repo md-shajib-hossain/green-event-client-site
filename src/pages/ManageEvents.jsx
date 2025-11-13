@@ -51,7 +51,7 @@ const ManageEvents = () => {
 
               {/* Main Card */}
               <div
-                className="relative h-full bg-white/90 backdrop-blur-xl rounded-3xl p-8 border border-green-100 
+                className="relative h-full bg-white/90 dark:bg-gray-800  backdrop-blur-xl rounded-3xl p-8 border border-green-100 
                   shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 
                   flex flex-col"
               >
@@ -77,7 +77,7 @@ const ManageEvents = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 line-clamp-2 group-hover:text-green-700 transition-colors">
+                <h3 className="text-2xl font-bold dark:text-gray-200 text-gray-800 mb-4 line-clamp-2 group-hover:text-green-700 transition-colors">
                   {event.title}
                 </h3>
                 <div>

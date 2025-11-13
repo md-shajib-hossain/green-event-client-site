@@ -60,7 +60,7 @@ const EventDetail = () => {
   //
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50 py-12 px-4">
+      <div className="min-h-screen dark:bg-gray-800 bg-green-50 py-12 px-4 ">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => navigate(-1)}
@@ -82,7 +82,7 @@ const EventDetail = () => {
             Back to Events
           </button>
 
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 dark:border-green-600 dark:border-2 rounded-2xl shadow-xl overflow-hidden">
             <div className="h-96 overflow-hidden">
               <img
                 src={event.thumbnail}
@@ -96,31 +96,31 @@ const EventDetail = () => {
                 {event.type}
               </div>
 
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              <h1 className="text-4xl font-bold dark:text-gray-200 text-gray-800 mb-4">
                 {event.title}
               </h1>
 
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="flex items-center gap-3 text-gray-600">
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
                   <CalendarHeart></CalendarHeart>
-                  <span className="font-medium">{event.date}</span>
+                  <span className="font-medium ">{event.date}</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-600">
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
                   <SlLocationPin size={18} />
                   <span className="font-medium">{event.location}</span>
                 </div>
               </div>
               <div className="prose max-w-none mb-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3 dark:text-gray-300">
                   About this Event
                 </h3>
-                <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">
+                <p className="text-gray-600 leading-relaxed whitespace-pre-wrap dark:text-gray-300">
                   {event.description}
                 </p>
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-500">
+              <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-300">
                 <span>Created by:</span>
-                <span className="font-medium text-green-700">
+                <span className="font-medium text-green-700 dark:text-green-500">
                   {event.creatorEmail}
                 </span>
               </div>

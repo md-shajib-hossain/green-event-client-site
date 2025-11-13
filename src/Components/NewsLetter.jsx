@@ -3,9 +3,9 @@ import React from "react";
 const NewsLetter = () => {
   return (
     <div>
-      <section className="py-24 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 relative overflow-hidden ">
         {/* Subtle Background Texture */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 ">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1920')] bg-cover bg-center mix-blend-overlay"></div>
         </div>
 
@@ -65,15 +65,15 @@ const NewsLetter = () => {
             </div>
 
             {/* Right Side – Subscription Form (Glassmorphism Card) */}
-            <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 lg:p-12 border border-white/40">
+            <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 lg:p-12 border border-white/40 dark:bg-gray-800">
               <h3 className="text-4xl font-bold bg-linear-to-r from-green-600 to-teal-800 text-transparent bg-clip-text mb-4">
                 Join Bangladesh’s Green Movement
               </h3>
-              <p className="text-lg text-gray-600 mb-10">
+              <p className="dark:text-gray-300  text-lg text-gray-600 mb-10">
                 Be the first to know when your city needs you
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-6 ">
                 <input
                   type="text"
                   placeholder="Your Full Name"

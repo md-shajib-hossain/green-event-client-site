@@ -110,10 +110,10 @@ const Register = () => {
   //
   return (
     <div>
-      <div className="hero  min-h-screen bg-linear-to-tr bg-green-900 from-teal-100">
+      <div className="hero  min-h-screen bg-linear-to-tr bg-green-900 from-teal-100 dark:bg-gray-800">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <h1 className="text-2xl text-center font-bold">
+            <h1 className="text-2xl text-center font-bold text-green-900 dark:text-green-500">
               Pleaase Register!
             </h1>
             <form onSubmit={handleRegister} className="fieldset">

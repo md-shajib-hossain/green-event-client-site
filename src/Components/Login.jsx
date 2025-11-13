@@ -67,10 +67,10 @@ const LogIn = () => {
   };
   return (
     <div>
-      <div className="hero  min-h-screen bg-linear-to-tl bg-green-900 from-teal-100">
-        <div className="card bg-green-50 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="hero  min-h-screen bg-linear-to-tl bg-green-900 from-teal-100 dark:bg-gray-800">
+        <div className="card bg-green-50 w-full max-w-sm shrink-0 shadow-2xl dark:bg-gray-800">
           <div className="card-body">
-            <h1 className="text-2xl text-center font-bold text-green-900">
+            <h1 className="text-2xl text-center font-bold text-green-900 dark:text-green-500">
               Pleaase Log In!
             </h1>
             <form onSubmit={handleLogIn} className="fieldset">

@@ -6,8 +6,8 @@ import NewsLetter from "../Components/NewsLetter";
 
 const Home = () => {
   return (
-    <div className="min-h-[500px] w-11/11 mx-auto">
-      <div>
+    <div className=" dark:bg-gray-800">
+      <div className="dark:bg-gray-800">
         <Banner></Banner>
         <FeatureSection></FeatureSection>
         <Gallery />

@@ -42,12 +42,12 @@ const JoinedEvent = () => {
               {/* Gradient Glow Background (Feature Section এর মতো) */}
               <div
                 className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl blur-lg opacity-30 
-                   transition duration-700"
+                   transition duration-70"
               />
 
               {/* Main Card */}
               <div
-                className="relative h-full bg-white/90 backdrop-blur-xl rounded-3xl p-8 border border-green-100 
+                className=" relative h-full bg-white/90 dark:bg-gray-800  backdrop-blur-xl rounded-3xl p-8 border border-green-100 
                   shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 
                   flex flex-col"
               >
@@ -73,7 +73,7 @@ const JoinedEvent = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 line-clamp-2 group-hover:text-green-700 transition-colors">
+                <h3 className="dark:text-gray-200 text-2xl font-bold text-gray-800 mb-4 line-clamp-2 group-hover:text-green-700 transition-colors">
                   {event.title}
                 </h3>
 
@@ -84,8 +84,10 @@ const JoinedEvent = () => {
                       <Calendar size={24} className="text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Event Date</p>
-                      <p className="font-bold text-gray-800">
+                      <p className="text-sm text-gray-500 dark:text-gray-300">
+                        Event Date
+                      </p>
+                      <p className="font-bold text-gray-800 dark:text-gray-300">
                         {format(new Date(event.date), "dd MMMM yyyy")}
                       </p>
                       <p className="text-sm text-green-600 font-medium">
@@ -96,7 +98,7 @@ const JoinedEvent = () => {
                 </div>
 
                 {/* Joined Date */}
-                <div className="text-center text-sm text-gray-500 mb-6">
+                <div className="text-center text-sm text-gray-500 dark:text-gray-300 mb-6">
                   <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-ping mr-2"></span>
                   <span>
                     You joined on{" "}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Banner() {
   return (
-    <section className="py-16 md:py-24 bg-linear-to-tr bg-green-900 from-teal-100 ">
+    <section className="py-16 md:py-24 bg-linear-to-tr bg-green-900 from-teal-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left: Text */}
