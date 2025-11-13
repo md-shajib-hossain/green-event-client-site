@@ -8,55 +8,11 @@ import { BsCalendar2Date } from "react-icons/bs";
 import notFound from "../assets/not_found.png";
 
 const UpcomingEvents = () => {
-  const events = useLoaderData(); // shob data ashtese
-  // const [newEvents, setNewEvents] = useState([]);
-  const [searchEvents, setSearchEvent] = useState(events);
+  const data = useLoaderData();
+  const [events, setEvents] = useState(data);
+  const [searchEvents, setSearchEvent] = useState(data);
   const [selectedType, setSelectedType] = useState("All");
-  // const [filteredEvents, setFilteredEvents] = useState([]);
   const [searchText, setSearchText] = useState("");
-  console.log(events);
-
-  // useEffect(() => {
-  //   if (searchText) {
-  //     fetch(`http://localhost:3000/search?search=${searchText}`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setSearchEvent(data);
-  //         console.log(searchEvents);
-  //       });
-  //   }
-  //   if (selectedType) {
-  //     fetch(`http://localhost:3000/filter?filter=${selectedType}`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //       });
-  //   } else {
-  //     searchEvents(events);
-  //   }
-  // }, [searchText, selectedType]);
-
-  // filter er jonno
-  // useEffect(() => {
-  //   const fetchEvents = async () => {
-  //     try {
-  //       const url = `http://localhost:3000/filter?filter=${selectedType}`;
-  //       const res = await fetch(url);
-  //       const data = await res.json();
-  //       // console.log(data);
-  //       setNewEvents(data);
-  //       setFilteredEvents(data);
-  //     } catch (err) {
-  //       console.error(err);
-  //       // setNewEvents([]);
-  //       setFilteredEvents([]);
-  //     } finally {
-  //       // setLoading(false);
-  //     }
-  //   };
-
-  //   fetchEvents();
-  // }, [selectedType]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -64,39 +20,62 @@ const UpcomingEvents = () => {
     setSearchText(search);
     console.log(searchText);
   };
+  useEffect(() => {
+    if (searchText) {
+      fetch(`http://localhost:3000/search?search=${searchText}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setEvents(data);
+          console.log(events);
+        });
+    } else if (selectedType) {
+      fetch(`http://localhost:3000/filter?filter=${selectedType}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setEvents(data);
+        });
+    }
+    //
+    else {
+      fetch("http://localhost:3000/events")
+        .then((res) => res.json())
+        .then((data) => {
+          setEvents(data);
+          console.log(events);
+        });
+    }
+  }, [searchText, selectedType]);
+
+  const handleError = () => {
+    setSelectedType("");
+    setSearchText("");
+  };
 
   if (!events || events.length === 0) {
     return (
-      <div className="text-center py-20">
-        <p className="text-xl text-gray-500">No upcoming events found.</p>
+      <div className="flex justify-center items-center flex-col">
+        <h1 className="text-4xl font-bold text-center mb-15 text-green-700 mt-10">
+          Upcoming Events 1st if
+        </h1>
+        <div>
+          <img src={notFound} alt="" />
+        </div>
+
+        <button
+          onClick={handleError}
+          className="btn px-5 my-10 rounded-full bg-green-600 text-white"
+        >
+          Upcoming Events
+        </button>
       </div>
     );
   }
-  // if (!newEvents || newEvents.length === 0) {
-  //   return (
-  //     <div className="flex justify-center items-center flex-col">
-  //       <h1 className="text-4xl font-bold text-center mb-15 text-green-700 mt-10">
-  //         Upcoming Events
-  //       </h1>
-  //       <div>
-  //         <img src={notFound} alt="" />
-  //       </div>
-
-  //       <button
-  //         onClick={() => setFilteredEvents(events)}
-  //         className="btn px-5 my-10 rounded-full bg-green-600 text-white"
-  //       >
-  //         Upcoming Events
-  //       </button>
-  //     </div>
-  //   );
-  // }
 
   if (!searchEvents || searchEvents.length === 0) {
     return (
       <div className="flex justify-center items-center flex-col">
         <h1 className="text-4xl font-bold text-center mb-15 text-green-700 mt-10">
-          Upcoming Events
+          Upcoming Events from search failed
         </h1>
         <div>
           <img src={notFound} alt="" />
