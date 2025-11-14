@@ -1,5 +1,6 @@
 // src/components/Banner.jsx
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 export default function Banner() {
   return (
@@ -31,23 +32,21 @@ export default function Banner() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.a
-                href="/events"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full text-center"
               >
-                Explore Events
-              </motion.a>
+                <Link to="/events"> Explore Events </Link>
+              </motion.div>
 
-              <motion.a
-                href="/create-event"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-green-600 text-green-600 hover:bg-white  font-semibold px-6 py-3 rounded-full text-center"
               >
-                Create Event
-              </motion.a>
+                <Link to="/create-event"> Create Event</Link>
+              </motion.div>
             </div>
 
             {/* Stats */}

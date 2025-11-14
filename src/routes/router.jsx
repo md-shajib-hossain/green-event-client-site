@@ -32,7 +32,8 @@ const router = createBrowserRouter([
       {
         path: "/events",
         Component: UpcomingEvents,
-        loader: () => fetch("http://localhost:3000/events"),
+        loader: () =>
+          fetch("https://green-event-server-site.vercel.app/events"),
       },
 
       {

@@ -11,7 +11,9 @@ const ManageEvents = () => {
   // console.log(user.email);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/manage-event?email=${user.email}`)
+    fetch(
+      `https://green-event-server-site.vercel.app/manage-event?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyEvents(data);

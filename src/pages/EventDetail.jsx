@@ -15,7 +15,7 @@ const EventDetail = () => {
 
   // for routes and data fecth by id
   useEffect(() => {
-    fetch(`http://localhost:3000/events/${id}`)
+    fetch(`https://green-event-server-site.vercel.app/events/${id}`)
       .then((res) => res.json())
       .then((data) => setEvent(data.result))
       .catch((err) => console.log(err));
@@ -31,18 +31,21 @@ const EventDetail = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/joined-events`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          eventId: id,
-          userEmail: user.email,
-          thumbnail: event.thumbnail,
-          type: event.type,
-          title: event.title,
-          date: event.date,
-        }),
-      });
+      const res = await fetch(
+        `https://green-event-server-site.vercel.app/joined-events`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            eventId: id,
+            userEmail: user.email,
+            thumbnail: event.thumbnail,
+            type: event.type,
+            title: event.title,
+            date: event.date,
+          }),
+        }
+      );
 
       const data = await res.json();
 

@@ -37,7 +37,9 @@ const UpdateEvent = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/update-event/${id}`);
+        const res = await fetch(
+          `https://green-event-server-site.vercel.app/update-event/${id}`
+        );
         const data = await res.json();
 
         if (res.ok && data.result) {
@@ -88,13 +90,16 @@ const UpdateEvent = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:3000/events/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        `https://green-event-server-site.vercel.app/events/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await res.json();
 

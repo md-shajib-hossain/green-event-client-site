@@ -6,13 +6,16 @@ import { motion } from "framer-motion";
 import { IoLocationOutline } from "react-icons/io5";
 import { BsCalendar2Date } from "react-icons/bs";
 import notFound from "../assets/not_found.png";
+import Loader from "../Components/Loader";
 
 const UpcomingEvents = () => {
   const data = useLoaderData();
   const [events, setEvents] = useState(data);
-  const [searchEvents, setSearchEvent] = useState(data);
+  // const [searchEvents, setSearchEvent] = useState(data);
   const [selectedType, setSelectedType] = useState("All");
   const [searchText, setSearchText] = useState("");
+
+  const [loading, setLoading] = useState(true);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -22,40 +25,54 @@ const UpcomingEvents = () => {
   };
   useEffect(() => {
     if (searchText) {
-      fetch(`http://localhost:3000/search?search=${searchText}`)
+      fetch(
+        `https://green-event-server-site.vercel.app/search?search=${searchText}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setEvents(data);
           console.log(events);
+          setLoading(false);
         });
     } else if (selectedType) {
-      fetch(`http://localhost:3000/filter?filter=${selectedType}`)
+      fetch(
+        `https://green-event-server-site.vercel.app/filter?filter=${selectedType}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setEvents(data);
+          setLoading(false);
         });
     }
     //
     else {
-      fetch("http://localhost:3000/events")
+      fetch("https://green-event-server-site.vercel.app/events")
         .then((res) => res.json())
         .then((data) => {
           setEvents(data);
           console.log(events);
+          setLoading(false);
         });
     }
   }, [searchText, selectedType]);
 
+  //
+  if (loading) {
+    return <Loader></Loader>;
+  }
+
+  //
   const handleError = () => {
     setSelectedType("");
     setSearchText("");
+    setLoading(false);
   };
 
   if (!events || events.length === 0) {
     return (
       <div className="flex justify-center items-center flex-col">
         <h1 className="text-4xl font-bold text-center mb-15 text-green-700 mt-10">
-          Upcoming Events 1st if
+          Upcoming Events
         </h1>
         <div>
           <img src={notFound} alt="" />
@@ -65,27 +82,7 @@ const UpcomingEvents = () => {
           onClick={handleError}
           className="btn px-5 my-10 rounded-full bg-green-600 text-white"
         >
-          Upcoming Events
-        </button>
-      </div>
-    );
-  }
-
-  if (!searchEvents || searchEvents.length === 0) {
-    return (
-      <div className="flex justify-center items-center flex-col">
-        <h1 className="text-4xl font-bold text-center mb-15 text-green-700 mt-10">
-          Upcoming Events from search failed
-        </h1>
-        <div>
-          <img src={notFound} alt="" />
-        </div>
-
-        <button
-          onClick={() => setSearchEvent(events)}
-          className="btn px-5 my-10 rounded-full bg-green-600 text-white"
-        >
-          Upcoming Events
+          See All Events
         </button>
       </div>
     );
@@ -114,10 +111,10 @@ const UpcomingEvents = () => {
         <h1 className="text-4xl font-bold text-center mb-15 text-green-700">
           Upcoming Events
         </h1>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center flex-col md:flex-row md:justify-between ">
           <form
             onSubmit={handleSearch}
-            className="flex justify-start gap-1 mb-10 "
+            className="flex items-center justify-start gap-1 mb-5 md:mb-10 "
           >
             <label className="input rounded-full border-2 border-green-600">
               <svg
@@ -146,7 +143,7 @@ const UpcomingEvents = () => {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="px-6 py-3 border-2 border-green-600 rounded-full bg-white text-green-700 font-semibold focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="px-6 py-2 mb-10 border-2 border-green-600 rounded-full bg-white dark:bg-gray-800 text-green-700 font-semibold focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               {eventTypes.map((type) => (
                 <option key={type} value={type}>
@@ -200,7 +197,7 @@ const UpcomingEvents = () => {
 
                 <div className=" mt-4">
                   <Link to={`/event-detail/${event._id}`}>
-                    <button className="btn w-full bg-green-700 btn-sm text-white">
+                    <button className="btn w-full  bg-green-700 rounded-full btn-sm text-white">
                       View Details
                     </button>
                   </Link>

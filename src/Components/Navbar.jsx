@@ -5,6 +5,8 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { TbMoodEmpty } from "react-icons/tb";
 import { FaPersonWalking } from "react-icons/fa6";
 import { toast } from "react-toastify";
+import { IoHome } from "react-icons/io5";
+import { AiFillProduct } from "react-icons/ai";
 
 const Navbar = () => {
   const handleTheme = (checked) => {
@@ -31,7 +33,7 @@ const Navbar = () => {
   };
   // console.log(user);
   return (
-    <div className="shadow-sm bg-green-50 dark:bg-gray-800">
+    <div className="shadow-sm bg-green-50 dark:bg-gray-800 border-b-2 border-gray-200 dark:border-green-600">
       <div className="w-11/12 mx-auto navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -57,7 +59,12 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-green-50 rounded-box z-1 mt-3 w-52 p-2 shadow text-green-900 font-semibold"
             >
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">
+                  <span>
+                    <IoHome />
+                  </span>{" "}
+                  Home
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/events">Upcoming Events</NavLink>
@@ -80,13 +87,27 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex items-center ">
           <ul className=" menu-horizontal px-1 text-lg gap-5 text-green-900 font-semibold dark:text-green-500 ">
-            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 rounded-full px-5">
-              <NavLink to="/">Home</NavLink>
-            </li>
+            <NavLink to="/">
+              <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 rounded-full px-5">
+                <div className="flex items-center justify-center gap-1 a">
+                  <p>
+                    <IoHome />
+                  </p>
+                  <p>Home</p>
+                </div>
+              </li>
+            </NavLink>
 
-            <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-5 rounded-full">
-              <NavLink to="/events">Upcoming Events</NavLink>
-            </li>
+            <NavLink to="/events">
+              <li className="hover:scale-105 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300 px-5 rounded-full">
+                <div className="flex items-center justify-center gap-1 ">
+                  <p>
+                    <AiFillProduct />
+                  </p>
+                  <p> Upcoming Events</p>
+                </div>
+              </li>
+            </NavLink>
           </ul>
         </div>
         <div className="navbar-end gap-2">

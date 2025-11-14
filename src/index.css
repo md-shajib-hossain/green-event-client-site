@@ -5,3 +5,7 @@
   themes: light --default, dark --prefersdark;
 }
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.a.active {
+  @apply bg-red-500 text-white;
+}

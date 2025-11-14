@@ -12,7 +12,9 @@ const JoinedEvent = () => {
   // console.log(user.email);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-joined-events?email=${user.email}`)
+    fetch(
+      `https://green-event-server-site.vercel.app/my-joined-events?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyEvents(data);

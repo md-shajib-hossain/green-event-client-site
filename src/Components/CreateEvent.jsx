@@ -81,13 +81,16 @@ export default function CreateEvent() {
     console.log("Sending to backend:", payload); // ডিবাগ
 
     try {
-      const res = await fetch(`http://localhost:3000/events`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        `https://green-event-server-site.vercel.app/events`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await res.json();
 
@@ -178,7 +181,7 @@ export default function CreateEvent() {
               name="type"
               value={formData.type}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition bg-white ${
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none transition bg-white dark:bg-gray-800 ${
                 errors.type ? "border-red-500" : "border-gray-300"
               }`}
             >

@@ -109,7 +109,7 @@ const CreateEvent = () => {
       });
     }
 
-    fetch("http://localhost:3000/events", {
+    fetch("https://green-event-server-site.vercel.app/events", {
       method: "POST",
       header: {
         "Content-Type": "application/json",
@@ -331,7 +331,7 @@ export default CreateEvent;
 //       date: e.target.date.value,
 //       creatorEmail: user.email,
 //     };
-//     fetch("http://localhost:3000/events", {
+//     fetch("https://green-event-server-site.vercel.app/events", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",

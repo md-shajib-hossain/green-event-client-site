@@ -15,8 +15,8 @@ const Gallery = () => {
             </p>
           </div>
 
-          {/* Gallery Grid - 4 columns on desktop, 2 on tablet, 1 on mobile */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {/* all photo starts here */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Photo 1 */}
             <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
               <img
