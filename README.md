@@ -61,6 +61,8 @@ Built with performance, accessibility, and beautiful animations in mind – deli
 
 <br/>
 
+
+
 ## Installation & Run Locally
 
 ```bash
@@ -81,3 +83,25 @@ cp .env.example .env.local
 # Start development server
 npm run dev
 > "Small actions, when multiplied by millions of people, can transform the world." – Let's make every event a step toward a greener planet!
+
+
+## Key Dependencies
+
+```json
+"dependencies": {
+  "react": "^19.1.1",
+  "react-dom": "^19.1.1",
+  "react-router": "^7.9.5",
+  "firebase": "^12.5.0",
+  "framer-motion": "^12.23.24",
+  "daisyui": "^5.4.7",
+  "tailwindcss": "^4.1.17",
+  "react-hot-toast": "^2.6.0",
+  "react-toastify": "^11.0.5",
+  "sweetalert2": "^11.26.3",
+  "react-icons": "^5.5.0",
+  "lucide-react": "^0.546.0",
+  "react-datepicker": "^8.8.0",
+  "date-fns": "^4.1.0",
+  "styled-components": "^6.1.19"
+}
